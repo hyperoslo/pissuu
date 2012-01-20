@@ -43,7 +43,44 @@ def test_upload_document():
         secret = API_SECRET
     )
 
-    assert issuu.upload_document(
+    document = issuu.upload_document(
         file = open('%s/parrot.pdf' % FIXTURES_PATH),
         title = 'Parrot'
+    )
+
+    issuu.delete_document(document)
+
+def test_delete_document():
+    """Verify that ``delete_document`` deletes a document."""
+    issuu = IssuuAPI(
+        key = API_KEY,
+        secret = API_SECRET
+    )
+
+    document = issuu.upload_document(
+        file = open('%s/parrot.pdf' % FIXTURES_PATH),
+        title = 'Parrot'
+    )
+
+    issuu.delete_document(document)
+
+def test_delete_documents():
+    """Verify that ``delete_documents`` deletes documents."""
+    issuu = IssuuAPI(
+        key = API_KEY,
+        secret = API_SECRET
+    )
+
+    document1 = issuu.upload_document(
+        file = open('%s/parrot.pdf' % FIXTURES_PATH),
+        title = 'Parrot'
+    )
+
+    document2 = issuu.upload_document(
+        file = open('%s/parrot.pdf' % FIXTURES_PATH),
+        title = 'Parrot'
+    )
+
+    issuu.delete_documents(
+        ids = [ document1, document2 ]
     )

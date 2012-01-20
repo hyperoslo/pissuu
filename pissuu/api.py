@@ -57,7 +57,7 @@ class IssuuAPI(object):
             }
         )
 
-        return response['document']['documentId']
+        return response['_content']['document']['documentId']
 
     def update_document(self):
         """
@@ -65,11 +65,27 @@ class IssuuAPI(object):
         """
         raise NotImplementedError()
 
-    def delete_document(self):
+    def delete_document(self, id):
         """
         Delete a document.
+
+        :param id: A string describing a document ID.
         """
-        raise NotImplementedError()
+        self.delete_documents([id])
+
+    def delete_documents(self, ids):
+        """
+        Delete the documents with the given ``ids``.
+
+        :param ids: A list of strings describing document IDs.
+        """
+        self._query(
+            url = 'http://api.issuu.com/1_0',
+            action = 'issuu.document.delete',
+            data = {
+                'names': ','.join(ids)
+            }
+        )
 
     def add_folder(self):
         """
@@ -133,7 +149,7 @@ class IssuuAPI(object):
         if data['stat'] == 'fail':
             raise self.Error(data['_content']['error']['message'])
         else:
-            return data['_content']
+            return data
 
     def _sign(self, data):
         """
