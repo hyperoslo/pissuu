@@ -144,7 +144,7 @@ class IssuuAPI(object):
         try:
             data = json.loads(response.content)['rsp']
         except ValueError:
-            raise self.Error('API response could not be parsed as JSON')
+            raise self.Error('API response could not be parsed as JSON: %s' % response.content)
 
         if data['stat'] == 'fail':
             raise self.Error(data['_content']['error']['message'])
