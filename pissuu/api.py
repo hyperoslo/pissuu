@@ -44,7 +44,7 @@ class IssuuAPI(object):
             action = 'issuu.documents.list'
         )
 
-    def upload_document(self, file):
+    def upload_document(self, file, title=None):
         """
         Upload the given ``file``.
         """
@@ -52,7 +52,8 @@ class IssuuAPI(object):
             url = 'http://upload.issuu.com/1_0',
             action = 'issuu.document.upload',
             data = {
-                'file': file
+                'file': file,
+                'title': title
             }
         )
 
