@@ -6,6 +6,8 @@ Python client for the Issuu API.
 Usage
 -----
 
+::
+
     from pissuu import IssuuAPI
 
     issuu = IssuuAPI(
@@ -27,6 +29,6 @@ besides listing and uploading documents.
 Installation
 ------------
 
-Pissuu is best installed with ``pip <http://pypi.python.org/pypi/pip>``_::
+Pissuu is best installed with `pip <http://pypi.python.org/pypi/pip>`_::
 
     $ pip install git+git://github.com/hyperoslo/pissuu.git
