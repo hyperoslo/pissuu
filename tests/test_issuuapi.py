@@ -44,5 +44,6 @@ def test_upload_document():
     )
 
     assert issuu.upload_document(
-        file = open('%s/parrot.jpg' % FIXTURES_PATH)
+        file = open('%s/parrot.pdf' % FIXTURES_PATH),
+        title = 'Parrot'
     )
