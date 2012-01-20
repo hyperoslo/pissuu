@@ -44,7 +44,7 @@ class IssuuAPI(object):
             action = 'issuu.documents.list'
         )
 
-    def upload_document(self, file, title=None):
+    def upload_document(self, file, title=''):
         """
         Upload the given ``file``.
         """
