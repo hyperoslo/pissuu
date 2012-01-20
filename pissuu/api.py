@@ -29,7 +29,7 @@ class IssuuAPI(object):
         """
         raise NotImplementedError()
 
-    def delete_bookmark(self):
+    def delete_bookmark(self, names):
         """
         Delete a bookmark.
         """
@@ -95,10 +95,12 @@ class IssuuAPI(object):
         """
         raise NotImplementedError()
 
-    def _query(self, url, action, data={}):
+    def _query(self, url, action, data=None):
         """
         Low-level access to the Issuu API.
         """
+        if not data:
+            data = {}
 
         data.update({
             'apiKey': self.key,
