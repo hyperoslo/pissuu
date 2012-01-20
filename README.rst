@@ -15,7 +15,7 @@ Usage
         secret = '13e3an36eaxjy8nenuepab05yc7j7w5g'
     )
 
-    upload = issuu.upload(
+    upload = issuu.upload_document(
         file = open('brochure.pdf'),
         title = 'Brochure'
     )
