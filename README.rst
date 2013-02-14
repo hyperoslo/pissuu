@@ -32,3 +32,9 @@ Installation
 Pissuu is best installed with `pip <http://pypi.python.org/pypi/pip>`_::
 
     $ pip install git+git://github.com/hyperoslo/pissuu.git
+
+Credits
+-------
+
+Hyper made this. We're a digital communications agency with a passion for good code,
+and if you're using this library we probably want to hire you.
